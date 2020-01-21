@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'api_signature/spec_support/path_builder'
-require 'api_signature/spec_support/headers_builder'
+require 'api_sigv2/spec_support/path_builder'
+require 'api_sigv2/spec_support/headers_builder'
 
 module ApiSigv2
   module SpecSupport

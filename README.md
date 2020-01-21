@@ -1,7 +1,3 @@
-[![Build Status](https://semaphoreci.com/api/v1/igormalinovskiy/api_signature/branches/master/shields_badge.svg)](https://semaphoreci.com/igormalinovskiy/api_signature)
-[![Code Climate](https://codeclimate.com/github/psyipm/api_signature/badges/gpa.svg)](https://codeclimate.com/github/psyipm/api_signature)
-[![Gem Version](https://badge.fury.io/rb/api_signature.svg)](https://badge.fury.io/rb/api_signature)
-
 # ApiSigv2
 
 Simple HMAC-SHA1 authentication via headers. Impressed by [AWS Requests with Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html)
@@ -13,7 +9,7 @@ This gem will generate signature for the client requests and verify that signatu
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'api_signature'
+gem 'api_sigv2'
 ```
 
 ## Usage
@@ -88,7 +84,7 @@ By default, the generated signature will be valid for 5 minutes
 This could be changed via initializer:
 
 ```ruby
-# config/initializers/api_signature.rb
+# config/initializers/api_sigv2.rb
 
 ApiSigv2.setup do |config|
   # Time to live, by default 5 minutes
@@ -110,7 +106,7 @@ end
 In your `rails_helper.rb`:
 
 ```ruby
-require 'api_signature/spec_support/helper'
+require 'api_sigv2/spec_support/helper'
 
 RSpec.configure do |config|
   config.include ApiSigv2::SpecSupport::Helper, type: :controller
@@ -174,7 +170,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/api_signature.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/api_sigv2.
 
 ## License
 

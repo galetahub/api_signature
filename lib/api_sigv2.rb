@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require 'api_signature/version'
-require 'api_signature/configuration'
+require 'api_sigv2/version'
+require 'api_sigv2/configuration'
 
 module ApiSigv2
-  autoload :Builder, 'api_signature/builder'
-  autoload :Validator, 'api_signature/validator'
-  autoload :Signer, 'api_signature/signer'
-  autoload :Signature, 'api_signature/signature'
-  autoload :AuthHeader, 'api_signature/auth_header'
-  autoload :Utils, 'api_signature/utils'
+  autoload :Builder, 'api_sigv2/builder'
+  autoload :Validator, 'api_sigv2/validator'
+  autoload :Signer, 'api_sigv2/signer'
+  autoload :Signature, 'api_sigv2/signature'
+  autoload :AuthHeader, 'api_sigv2/auth_header'
+  autoload :Utils, 'api_sigv2/utils'
 
   class << self
     attr_writer :configuration

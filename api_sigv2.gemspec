@@ -2,7 +2,7 @@
 
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'api_signature/version'
+require 'api_sigv2/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'galetahub-api-sigv2'
@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['galeta.igor@gmail.com']
 
   spec.summary       = 'Sign API requests with HMAC signature'
-  spec.homepage      = 'https://github.com/psyipm/api_signature'
+  spec.homepage      = 'https://github.com/galetahub/api_signature'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|

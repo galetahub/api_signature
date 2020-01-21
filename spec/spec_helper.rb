@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-require 'api_signature'
+require 'api_sigv2'
 
 RSpec.configure do |config|
   # Disable RSpec exposing methods globally on `Module` and `main`
