@@ -2,9 +2,9 @@
 
 require 'spec_helper'
 
-RSpec.describe ApiSignature do
+RSpec.describe ApiSigv2 do
   it 'has a version number' do
-    expect(ApiSignature::VERSION).not_to be nil
+    expect(ApiSigv2::VERSION).not_to be nil
   end
 
   context 'readme' do
@@ -20,7 +20,7 @@ RSpec.describe ApiSignature do
         body: 'body'
       }
     end
-    let(:signer) { ApiSignature::Signer.new(api_access_key, api_secret_key) }
+    let(:signer) { ApiSigv2::Signer.new(api_access_key, api_secret_key) }
     let(:signature) { signer.sign_request(request) }
 
     it 'must create signature' do
@@ -30,7 +30,7 @@ RSpec.describe ApiSignature do
     it 'must validate signature' do
       request[:headers].merge!(signature.headers)
 
-      validator = ApiSignature::Validator.new(request)
+      validator = ApiSigv2::Validator.new(request)
       # get key from request headers
       expect(validator.access_key).to eq api_access_key
 

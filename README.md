@@ -2,7 +2,7 @@
 [![Code Climate](https://codeclimate.com/github/psyipm/api_signature/badges/gpa.svg)](https://codeclimate.com/github/psyipm/api_signature)
 [![Gem Version](https://badge.fury.io/rb/api_signature.svg)](https://badge.fury.io/rb/api_signature)
 
-# ApiSignature
+# ApiSigv2
 
 Simple HMAC-SHA1 authentication via headers. Impressed by [AWS Requests with Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html)
 
@@ -18,7 +18,7 @@ gem 'api_signature'
 
 ## Usage
 
-The usage is pretty simple. To sign a request use ApiSignature::Signer and for validation use ApiSignature::Validator.
+The usage is pretty simple. To sign a request use ApiSigv2::Signer and for validation use ApiSigv2::Validator.
 
 ### Create signature
 
@@ -38,7 +38,7 @@ request = {
 }
 
 # Sign your request
-signature = ApiSignature::Signer.new(api_access_key, api_secret_key).sign_request(request)
+signature = ApiSigv2::Signer.new(api_access_key, api_secret_key).sign_request(request)
 
 # Now apply signed headers to your real request
 signature.headers
@@ -70,7 +70,7 @@ request = {
 }
 
 # initialize validator with a request to validate
-validator = ApiSignature::Validator.new(request)
+validator = ApiSigv2::Validator.new(request)
 
 # get access key from request headers (String)
 validator.access_key
@@ -90,7 +90,7 @@ This could be changed via initializer:
 ```ruby
 # config/initializers/api_signature.rb
 
-ApiSignature.setup do |config|
+ApiSigv2.setup do |config|
   # Time to live, by default 5 minutes
   config.signature_ttl = 5 * 60
 
@@ -113,7 +113,7 @@ In your `rails_helper.rb`:
 require 'api_signature/spec_support/helper'
 
 RSpec.configure do |config|
-  config.include ApiSignature::SpecSupport::Helper, type: :controller
+  config.include ApiSigv2::SpecSupport::Helper, type: :controller
 end
 ```
 

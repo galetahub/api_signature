@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ApiSignature
+module ApiSigv2
   class Configuration
     attr_accessor :signature_ttl, :signature_header, :datetime_format, :service
 

@@ -5,10 +5,10 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'api_signature/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'api_signature'
-  spec.version       = ApiSignature::VERSION
-  spec.authors       = ['Igor Galeta', 'Igor Malinovskiy']
-  spec.email         = ['igor.malinovskiy@netfix.xyz']
+  spec.name          = 'galetahub-api-sigv2'
+  spec.version       = ApiSigv2::VERSION
+  spec.authors       = ['Igor Galeta']
+  spec.email         = ['galeta.igor@gmail.com']
 
   spec.summary       = 'Sign API requests with HMAC signature'
   spec.homepage      = 'https://github.com/psyipm/api_signature'

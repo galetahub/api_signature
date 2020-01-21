@@ -2,7 +2,7 @@
 
 require 'uri'
 
-module ApiSignature
+module ApiSigv2
   class Builder
     attr_reader :settings
 
@@ -100,7 +100,7 @@ module ApiSignature
     end
 
     def extract_datetime
-      headers['x-datetime'] || Time.now.utc.strftime(ApiSignature.configuration.datetime_format)
+      headers['x-datetime'] || Time.now.utc.strftime(ApiSigv2.configuration.datetime_format)
     end
 
     def merge_sign_with_origin_headers

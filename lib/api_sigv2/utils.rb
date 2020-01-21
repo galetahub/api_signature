@@ -5,7 +5,7 @@ require 'digest/sha1'
 require 'tempfile'
 require 'date'
 
-module ApiSignature
+module ApiSigv2
   module Utils
     # @param [File, Tempfile, IO#read, String] value
     # @return [String<SHA256 Hexdigest>]
@@ -111,7 +111,7 @@ module ApiSignature
     end
 
     def self.safe_parse_datetime(value, format = nil)
-      format ||= ApiSignature.configuration.datetime_format
+      format ||= ApiSigv2.configuration.datetime_format
       DateTime.strptime(value, format)
     rescue ArgumentError => _e
       nil

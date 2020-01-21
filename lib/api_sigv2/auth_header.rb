@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ApiSignature
+module ApiSigv2
   class AuthHeader
     attr_reader :authorization
 

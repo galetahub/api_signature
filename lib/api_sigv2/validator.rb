@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ApiSignature
+module ApiSigv2
   # Validate a request
   #
   #     request = {
@@ -14,7 +14,7 @@ module ApiSignature
   #       },
   #       body: 'body'
   #     }
-  #     validator = ApiSignature::Validator.new(request, uri_escape_path: true)
+  #     validator = ApiSigv2::Validator.new(request, uri_escape_path: true)
   #     validator.access_key # get key from request headers
   #     validator.valid?('secret_key')
   #
@@ -77,7 +77,7 @@ module ApiSignature
     end
 
     def signature_header_name
-      @options[:signature_header] || ApiSignature.configuration.signature_header
+      @options[:signature_header] || ApiSigv2.configuration.signature_header
     end
 
     def timestamp
@@ -90,7 +90,7 @@ module ApiSignature
 
     def ttl_range
       to = Time.now.utc
-      from = to - ApiSignature.configuration.signature_ttl
+      from = to - ApiSigv2.configuration.signature_ttl
 
       from..to
     end

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ApiSignature::Signature do
+RSpec.describe ApiSigv2::Signature do
   let(:attributes) do
     {
       headers: 'headers',

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ApiSignature::Validator do
+RSpec.describe ApiSigv2::Validator do
   let(:user_agent) { 'Googlebot/2.1 (+http://www.google.com/bot.html)' }
   let(:body) { 'body' }
   let(:request_to_sign) do
@@ -21,7 +21,7 @@ RSpec.describe ApiSignature::Validator do
   end
   let(:secret_key) { 'secret_key' }
   let(:access_key) { 'access_key' }
-  let(:signer) { ApiSignature::Signer.new(access_key, secret_key, apply_checksum_header: true) }
+  let(:signer) { ApiSigv2::Signer.new(access_key, secret_key, apply_checksum_header: true) }
   let(:signature) { signer.sign_request(request_to_sign) }
   let(:validator) { described_class.new(request_to_validate) }
 
@@ -41,12 +41,12 @@ RSpec.describe ApiSignature::Validator do
 
     expect(validator.signed_headers['host']).to eq 'example.com'
     expect(validator.signed_headers['user-agent']).to eq user_agent
-    expect(validator.signed_headers['x-content-sha256']).to eq ApiSignature::Utils.sha256_hexdigest(body)
+    expect(validator.signed_headers['x-content-sha256']).to eq ApiSigv2::Utils.sha256_hexdigest(body)
     expect(validator.signed_headers['x-datetime']).not_to eq nil
   end
 
   context 'when expired datetime' do
-    let(:ttl) { ApiSignature.configuration.signature_ttl + 1 }
+    let(:ttl) { ApiSigv2.configuration.signature_ttl + 1 }
 
     let(:request_to_sign) do
       {
@@ -54,7 +54,7 @@ RSpec.describe ApiSignature::Validator do
         url: 'https://example.com/posts',
         headers: {
           'User-Agent' => user_agent,
-          'x-datetime' => (Time.now - ttl).strftime(ApiSignature.configuration.datetime_format)
+          'x-datetime' => (Time.now - ttl).strftime(ApiSigv2.configuration.datetime_format)
         },
         body: body
       }
@@ -69,7 +69,7 @@ RSpec.describe ApiSignature::Validator do
   context 'when authorization blank' do
     let(:request_to_validate) do
       data = request_to_sign[:headers].merge(signature.headers)
-      data.delete(ApiSignature.configuration.signature_header)
+      data.delete(ApiSigv2.configuration.signature_header)
 
       request_to_sign.merge(headers: data)
     end

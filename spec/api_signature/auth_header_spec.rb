@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ApiSignature::AuthHeader do
+RSpec.describe ApiSigv2::AuthHeader do
   let(:cred) { 'api_key/20191227/api_request' }
   let(:headers) { 'host;user-agent;x-content-sha256;x-datetime' }
   let(:sig) { 'xxx' }

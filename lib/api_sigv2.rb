@@ -3,7 +3,7 @@
 require 'api_signature/version'
 require 'api_signature/configuration'
 
-module ApiSignature
+module ApiSigv2
   autoload :Builder, 'api_signature/builder'
   autoload :Validator, 'api_signature/validator'
   autoload :Signer, 'api_signature/signer'
@@ -24,7 +24,7 @@ module ApiSignature
   end
 
   # @example
-  #   ApiSignature.setup do |config|
+  #   ApiSigv2.setup do |config|
   #     config.signature_ttl = 2.minutes
   #   end
   #

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ApiSignature::Configuration do
+RSpec.describe ApiSigv2::Configuration do
   let(:config) { described_class.new }
 
   it 'must set default value' do

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ApiSignature::Builder do
+RSpec.describe ApiSigv2::Builder do
   let(:env) do
     {
       http_method: 'put',

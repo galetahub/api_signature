@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ApiSignature
+module ApiSigv2
   class Signature
     # @return [Hash<String,String>] A hash of headers that should
     #   be applied to the HTTP request. Header keys are lower

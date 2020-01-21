@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ApiSignature
+module ApiSigv2
   module SpecSupport
     class PathBuilder
       attr_reader :controller, :action_name, :params

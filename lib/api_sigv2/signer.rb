@@ -2,10 +2,10 @@
 
 require 'set'
 
-module ApiSignature
+module ApiSigv2
   # The signer requires secret key.
   #
-  #     signer = ApiSignature::Signer.new('access key', 'secret key', uri_escape_path: true)
+  #     signer = ApiSigv2::Signer.new('access key', 'secret key', uri_escape_path: true)
   #
   class Signer
     NAME = 'API-HMAC-SHA256'
@@ -87,11 +87,11 @@ module ApiSignature
     end
 
     def signature_header_name
-      @options[:signature_header] || ApiSignature.configuration.signature_header
+      @options[:signature_header] || ApiSigv2.configuration.signature_header
     end
 
     def service
-      @options[:service] || ApiSignature.configuration.service
+      @options[:service] || ApiSigv2.configuration.service
     end
 
     def unsigned_headers

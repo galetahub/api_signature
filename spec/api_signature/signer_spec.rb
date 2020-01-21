@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ApiSignature::Signer do
+RSpec.describe ApiSigv2::Signer do
   let(:request) do
     {
       http_method: 'POST',

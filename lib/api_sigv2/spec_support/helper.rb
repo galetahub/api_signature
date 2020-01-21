@@ -3,7 +3,7 @@
 require 'api_signature/spec_support/path_builder'
 require 'api_signature/spec_support/headers_builder'
 
-module ApiSignature
+module ApiSigv2
   module SpecSupport
     module Helper
       include Rack::Test::Methods
